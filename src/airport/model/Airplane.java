@@ -32,7 +32,6 @@ public class Airplane {
     }
 
 
-
     private String id;
     private int maximumNumberOfPassengers;
     private int currentNumberOfPassengers;
