@@ -23,5 +23,14 @@ public class CargoPlane extends Airplane {
         this.setCurrentNumberOfLoad(0);
         return returnText;
     }
-
+    @Override
+    public String toString() {
+        return "PeoplePlane{" +
+                "id='" + this.getId() + '\'' +
+                ", isFlying=" + this.isFlying() +
+                ", cruiseSpeed=" + this.getCruiseSpeed() +
+                ", maximumNumberOfLoad=" + this.getMaximumNumberOfLoad() +
+                ", currentNumberOfLoad=" + this.getCurrentNumberOfLoad() +
+                '}';
+    }
 }

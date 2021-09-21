@@ -16,13 +16,11 @@ public class Airport {
     public void printAirplanesInAirport() {
         System.out.printf("Passenger planes from airport %s:\n", this.name);
         Arrays.stream(airplanes).filter(airplane -> airplane instanceof PeoplePlane)
-                .map(airplane -> airplane.getId())
-                .forEach(id -> System.out.println("Passenger plane " + id));
+                .forEach(System.out::println);
 
         System.out.printf("Cargo aircraft from airport %s:\n", this.name);
         Arrays.stream(airplanes).filter(airplane -> airplane instanceof CargoPlane)
-                .map(airplane -> airplane.getId())
-                .forEach(id -> System.out.println("Cargo plane " + id));
+                .forEach(System.out::println);
     }
 
     public String getAnAvailablePeoplePlane() {

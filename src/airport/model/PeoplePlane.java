@@ -24,5 +24,14 @@ public class PeoplePlane extends Airplane {
         return returnText;
     }
 
-
+    @Override
+    public String toString() {
+        return "PeoplePlane{" +
+                "id='" + this.getId() + '\'' +
+                ", isFlying=" + this.isFlying() +
+                ", cruiseSpeed=" + this.getCruiseSpeed() +
+                ", maximumNumberOfLoad=" + this.getMaximumNumberOfLoad() +
+                ", currentNumberOfLoad=" + this.getCurrentNumberOfLoad() +
+                '}';
+    }
 }

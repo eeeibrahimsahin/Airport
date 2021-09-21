@@ -95,6 +95,16 @@ public abstract class Airplane {
         this.currentNumberOfLoad = currentNumberOfLoad;
     }
 
+    @Override
+    public String toString() {
+        return "Airplane{" +
+                "id='" + id + '\'' +
+                ", isFlying=" + isFlying +
+                ", cruiseSpeed=" + cruiseSpeed +
+                ", maximumNumberOfLoad=" + maximumNumberOfLoad +
+                ", currentNumberOfLoad=" + currentNumberOfLoad +
+                '}';
+    }
 }
 
 //
