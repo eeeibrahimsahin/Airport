@@ -1,30 +1,40 @@
 package airport.model;
 
-public class Airplane {
+public abstract class Airplane {
 
-    public Airplane(String id, int maximumNumberOfPassengers, int currentNumberOfPassengers, boolean isFlying, double cruiseSpeed) {
+    private String id;
+    private boolean isFlying;
+    private double cruiseSpeed;
+    private int maximumNumberOfLoad;
+    private int currentNumberOfLoad;
+
+    protected abstract String loadPlane(int amount);
+
+    protected abstract String unloadPlane();
+
+    public Airplane(String id, int maximumNumberOfLoad, int currentNumberOfLoad, boolean isFlying, double cruiseSpeed) {
         this.id = id;
-        this.maximumNumberOfPassengers = maximumNumberOfPassengers;
-        this.currentNumberOfPassengers = currentNumberOfPassengers;
         this.isFlying = isFlying;
         this.cruiseSpeed = cruiseSpeed;
+        this.maximumNumberOfLoad = maximumNumberOfLoad;
+        this.currentNumberOfLoad = currentNumberOfLoad;
     }
 
-    public String loadPassengersWithNumberOfPassengers(int numberOfPassengers) {
-        if (numberOfPassengers > this.maximumNumberOfPassengers) {
-            this.currentNumberOfPassengers = this.maximumNumberOfPassengers;
-            return "Airplane " + this.id + " charges " + this.maximumNumberOfPassengers + " passengers, "
-                    + (numberOfPassengers - this.maximumNumberOfPassengers) + " do not fit.";
-        }
-        this.currentNumberOfPassengers = numberOfPassengers;
-        return "Airplane " + this.id + " charges " + this.currentNumberOfPassengers + " passengers.";
-
+    protected void setupPlane(Airplane airplane) {
+        airplane.setId(id);
+        airplane.setFlying(isFlying);
+        airplane.setupCurrentLoad(currentNumberOfLoad);
+        airplane.setMaximumNumberOfLoad(maximumNumberOfLoad);
+        airplane.setCruiseSpeed(cruiseSpeed);
     }
 
-    public String unloadPassengers() {
-        String returnText = "Airplane " + this.id + " discharges " + this.currentNumberOfPassengers + " passengers.";
-        this.currentNumberOfPassengers = 0;
-        return returnText;
+    ;
+
+
+    protected void setupCurrentLoad(int amount) {
+        if (amount <= this.maximumNumberOfLoad)
+            this.currentNumberOfLoad = amount;
+        else System.out.println("Capacity is not enough for this amount");
     }
 
     public String takeOff() {
@@ -53,22 +63,6 @@ public class Airplane {
         this.id = id;
     }
 
-    public int getMaximumNumberOfPassengers() {
-        return maximumNumberOfPassengers;
-    }
-
-    public void setMaximumNumberOfPassengers(int maximumNumberOfPassengers) {
-        this.maximumNumberOfPassengers = maximumNumberOfPassengers;
-    }
-
-    public int getCurrentNumberOfPassengers() {
-        return currentNumberOfPassengers;
-    }
-
-    public void setCurrentNumberOfPassengers(int currentNumberOfPassengers) {
-        this.currentNumberOfPassengers = currentNumberOfPassengers;
-    }
-
     public boolean isFlying() {
         return isFlying;
     }
@@ -85,9 +79,42 @@ public class Airplane {
         this.cruiseSpeed = cruiseSpeed;
     }
 
-    private String id;
-    private int maximumNumberOfPassengers;
-    private int currentNumberOfPassengers;
-    private boolean isFlying;
-    private double cruiseSpeed;
+    public int getMaximumNumberOfLoad() {
+        return maximumNumberOfLoad;
+    }
+
+    public void setMaximumNumberOfLoad(int maximumNumberOfLoad) {
+        this.maximumNumberOfLoad = maximumNumberOfLoad;
+    }
+
+    public int getCurrentNumberOfLoad() {
+        return currentNumberOfLoad;
+    }
+
+    public void setCurrentNumberOfLoad(int currentNumberOfLoad) {
+        this.currentNumberOfLoad = currentNumberOfLoad;
+    }
+
 }
+
+//
+//interface Loadable {
+//    default boolean load(Airplane airplane, int amount) {
+//        if (amount > airplane.getMaximumNumberOfLoad()) {
+//            return false;
+//        } else {
+//            airplane.setCurrentNumberOfLoad(amount);
+//            return true;
+//        }
+//    }
+//
+//    ;
+//}
+//
+//interface Unloadable {
+//    default void unload(Airplane airplane) {
+//        airplane.setCurrentNumberOfLoad(0);
+//    }
+//
+//    ;
+//}
