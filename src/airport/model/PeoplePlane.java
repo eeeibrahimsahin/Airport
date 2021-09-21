@@ -7,7 +7,6 @@ public class PeoplePlane extends Airplane {
 
     @Override
     protected String loadPlane(int amount) {
-        setupPlane(this);
         if (amount > this.getMaximumNumberOfLoad()) {
             this.setCurrentNumberOfLoad(this.getMaximumNumberOfLoad());
             return "Airplane " + this.getId() + " charges " + amount + " passengers, "

@@ -20,16 +20,6 @@ public abstract class Airplane {
         this.currentNumberOfLoad = currentNumberOfLoad;
     }
 
-    protected void setupPlane(Airplane airplane) {
-        airplane.setId(id);
-        airplane.setFlying(isFlying);
-        airplane.setupCurrentLoad(currentNumberOfLoad);
-        airplane.setMaximumNumberOfLoad(maximumNumberOfLoad);
-        airplane.setCruiseSpeed(cruiseSpeed);
-    }
-
-    ;
-
 
     protected void setupCurrentLoad(int amount) {
         if (amount <= this.maximumNumberOfLoad)
