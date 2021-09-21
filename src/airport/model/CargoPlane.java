@@ -5,12 +5,16 @@ public class CargoPlane extends Airplane {
         super(id, maximumNumberOfPassengers, currentNumberOfPassengers, isFlying, cruiseSpeed);
     }
 
+    public void sayHelloFromCargoPlane() {
+        System.out.println("Hello from cargo plane " + this.getId());
+    }
+
     @Override
     protected String loadPlane(int amount) {
         setupPlane(this);
         if (amount > this.getMaximumNumberOfLoad()) {
             this.setCurrentNumberOfLoad(this.getMaximumNumberOfLoad());
-            return "Cargo Plane " + this.getId() + " loads " + amount+ " tons of cargo,"
+            return "Cargo Plane " + this.getId() + " loads " + amount + " tons of cargo,"
                     + (amount - this.getMaximumNumberOfLoad()) + " tons do not fit.";
         }
         this.setCurrentNumberOfLoad(amount);
@@ -23,6 +27,7 @@ public class CargoPlane extends Airplane {
         this.setCurrentNumberOfLoad(0);
         return returnText;
     }
+
     @Override
     public String toString() {
         return "PeoplePlane{" +

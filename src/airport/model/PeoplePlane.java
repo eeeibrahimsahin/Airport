@@ -5,6 +5,10 @@ public class PeoplePlane extends Airplane {
         super(id, maximumNumberOfPassengers, currentNumberOfPassengers, isFlying, cruiseSpeed);
     }
 
+    public void sayHelloFromPeoplePlane() {
+        System.out.println("Hello from people plane " + this.getId());
+    }
+
     @Override
     protected String loadPlane(int amount) {
         setupPlane(this);

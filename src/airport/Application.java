@@ -19,10 +19,11 @@ public class Application {
                 new CargoPlane("PLA166", 15, 0, false, 600)
         });
 
-        airport.printAirplanesInAirport();
-        System.out.println(airport.getAnAvailablePeoplePlane());
-        System.out.println(airport.getAnAvailableCargoPlane());
-        System.out.println(airport.loadingAnAirplane("ABC123", 63));
-        System.out.println(airport.loadingAnAirplane("FF2134",20));
+        for (Airplane airplane : airport.getAirplanes()) {
+            if (airplane instanceof PeoplePlane)
+                ((PeoplePlane) airplane).sayHelloFromPeoplePlane();
+            else if (airplane instanceof CargoPlane)
+                ((CargoPlane) airplane).sayHelloFromCargoPlane();
+        }
     }
 }

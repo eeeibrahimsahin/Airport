@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.Optional;
 
 public class Airport {
+    private String name;
+    private Airplane[] airplanes;
 
     public Airport(String name, Airplane[] airplanes) {
         this.name = name;
@@ -11,6 +13,22 @@ public class Airport {
         for (int i = 0; i < airplanes.length; i++) {
             this.airplanes[i] = airplanes[i];
         }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Airplane[] getAirplanes() {
+        return airplanes;
+    }
+
+    public void setAirplanes(Airplane[] airplanes) {
+        this.airplanes = airplanes;
     }
 
     public void printAirplanesInAirport() {
@@ -58,6 +76,4 @@ public class Airport {
         return optionalAirplane.get().loadPlane(amount);
     }
 
-    private String name;
-    private Airplane[] airplanes;
 }
