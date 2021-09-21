@@ -20,12 +20,11 @@ public abstract class Airplane {
         this.currentNumberOfLoad = currentNumberOfLoad;
     }
 
-    protected void setupPlane(Airplane airplane) {
-        airplane.setId(id);
-        airplane.setFlying(isFlying);
-        airplane.setupCurrentLoad(currentNumberOfLoad);
-        airplane.setMaximumNumberOfLoad(maximumNumberOfLoad);
-        airplane.setCruiseSpeed(cruiseSpeed);
+    protected void setupPlane(Airplane airplane,int amount) {
+        if (amount>this.getMaximumNumberOfLoad())
+            this.setCurrentNumberOfLoad(this.getMaximumNumberOfLoad());
+        else this.setCurrentNumberOfLoad(amount);
+
     }
 
     ;
@@ -59,7 +58,7 @@ public abstract class Airplane {
         return id;
     }
 
-    public void setId(String id) {
+    private void setId(String id) {
         this.id = id;
     }
 
@@ -83,7 +82,7 @@ public abstract class Airplane {
         return maximumNumberOfLoad;
     }
 
-    public void setMaximumNumberOfLoad(int maximumNumberOfLoad) {
+    private void setMaximumNumberOfLoad(int maximumNumberOfLoad) {
         this.maximumNumberOfLoad = maximumNumberOfLoad;
     }
 
@@ -91,7 +90,7 @@ public abstract class Airplane {
         return currentNumberOfLoad;
     }
 
-    public void setCurrentNumberOfLoad(int currentNumberOfLoad) {
+    private void setCurrentNumberOfLoad(int currentNumberOfLoad) {
         this.currentNumberOfLoad = currentNumberOfLoad;
     }
 
