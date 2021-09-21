@@ -7,7 +7,6 @@ public class CargoPlane extends Airplane {
 
     @Override
     protected String loadPlane(int amount) {
-        setupPlane(this);
         if (amount > this.getMaximumNumberOfLoad()) {
             this.setCurrentNumberOfLoad(this.getMaximumNumberOfLoad());
             return "Cargo Plane " + this.getId() + " loads " + amount+ " tons of cargo,"
