@@ -28,9 +28,7 @@ interface Beverage {
 }
 
 class Beer implements Beverage {
-
 }
 
 class Wine implements Beverage {
-
 }
