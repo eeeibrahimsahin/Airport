@@ -20,8 +20,8 @@ public abstract class Airplane {
         this.currentNumberOfLoad = currentNumberOfLoad;
     }
 
-    protected void setupPlane(Airplane airplane,int amount) {
-        if (amount>this.getMaximumNumberOfLoad())
+    protected void setupPlane(Airplane airplane, int amount) {
+        if (amount > this.getMaximumNumberOfLoad())
             this.setCurrentNumberOfLoad(this.getMaximumNumberOfLoad());
         else this.setCurrentNumberOfLoad(amount);
 

@@ -1,9 +1,6 @@
 package airport;
 
-import airport.model.Airplane;
-import airport.model.Airport;
-import airport.model.CargoPlane;
-import airport.model.PeoplePlane;
+import airport.model.*;
 
 import java.util.Arrays;
 
@@ -24,5 +21,18 @@ public class Application {
         System.out.println(airport.getAnAvailableCargoPlane());
         System.out.println(airport.loadingAnAirplane("ABC123", 63));
         System.out.println(airport.loadingAnAirplane("FF2134", 20));
+
+        Plane plane = new PassengerPlane.Builder().flightId("TK300")
+                .maximumNumberOfPassengers(500)
+                .currentNumberOfPassengers(200)
+                .build();
+        System.out.println("plane = " + plane);
+        System.out.println(" plane.load(300) = " + plane.load(350));
+        System.out.println("plane.unLoad() = " + plane.unLoad());
+        Plane cargo = new CargoPlaneNew.Builder().flightId("CR123").maximumLoad(300).currentLoad(200).build();
+        System.out.println("cargo.load(50) = " + cargo.load(50));
+        System.out.println("cargo.load(100) = " + cargo.load(100));
+        System.out.println("cargo.unLoad() = " + cargo.unLoad());
+        System.out.println("cargo = " + cargo);
     }
 }
