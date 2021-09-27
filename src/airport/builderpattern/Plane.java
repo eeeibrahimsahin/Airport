@@ -4,11 +4,13 @@ public abstract class Plane {
     private String id;
     private boolean isFlying;
     private double cruiseSpeed;
+    private boolean isCleaned;
 
     abstract static class Builder<T extends Builder<T>> {
         private String id = "No Name";
         private boolean isFlying = false;
         private double cruiseSpeed = 0.0;
+        private boolean isCleaned = false;
 
         public T flightId(String value) {
             id = value;
@@ -25,6 +27,12 @@ public abstract class Plane {
             return self();
         }
 
+        public T isCleaned(boolean value) {
+            isCleaned = value;
+            return self();
+        }
+
+
         public abstract Plane build();
 
         protected abstract T self();
@@ -34,6 +42,7 @@ public abstract class Plane {
         id = builder.id;
         isFlying = builder.isFlying;
         cruiseSpeed = builder.cruiseSpeed;
+        isCleaned = builder.isCleaned;
     }
 
     public abstract String load(int value);
@@ -51,6 +60,8 @@ public abstract class Plane {
     public double getCruiseSpeed() {
         return cruiseSpeed;
     }
+
+    public void clean(){}
 
     @Override
     public String toString() {

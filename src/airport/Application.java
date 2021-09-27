@@ -4,6 +4,7 @@ import airport.builderpattern.AirportNew;
 import airport.builderpattern.CargoPlaneNew;
 import airport.builderpattern.PassengerPlane;
 import airport.builderpattern.Plane;
+import airport.factorypattern.PlaneFactory;
 import airport.model.*;
 import airport.service.singeltonpattern.AirportService;
 
@@ -54,5 +55,17 @@ public class Application {
         airportService.clean(cargo);
         AirportService airportService1 = AirportService.getInstance();
         airportService1.clean(plane);
+
+        //Factory pattern
+        Plane passengerPlane = PlaneFactory.getPlane("Passengerplane");
+        System.out.println("passengerplane = " + passengerPlane);
+        Plane cargoPlane = PlaneFactory.getPlane("Cargoplane");
+        System.out.println("cargoPlane = " + cargoPlane);
+        Plane plane1 = PlaneFactory.getPlane("passengerplane", "TK720");
+        System.out.println("plane1 = " + plane1);
+        Plane cargoPlane1 = PlaneFactory.getPlane("cargoplane", "CRG0987");
+        System.out.println("cargoPlane1 = " + cargoPlane1);
+        Plane asdasdada = PlaneFactory.getPlane("asdasdada");
+        System.out.println("asdasdada = " + asdasdada);
     }
 }
