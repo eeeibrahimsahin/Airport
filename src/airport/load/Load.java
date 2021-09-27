@@ -1,4 +1,4 @@
-package airport.model;
+package airport.load;
 
 public class Load {
     private int amount;

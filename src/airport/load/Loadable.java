@@ -1,4 +1,4 @@
-package airport.model;
+package airport.load;
 
 import java.util.function.Predicate;
 

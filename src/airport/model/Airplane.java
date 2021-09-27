@@ -105,25 +105,3 @@ public abstract class Airplane {
                 '}';
     }
 }
-
-//
-//interface Loadable {
-//    default boolean load(Airplane airplane, int amount) {
-//        if (amount > airplane.getMaximumNumberOfLoad()) {
-//            return false;
-//        } else {
-//            airplane.setCurrentNumberOfLoad(amount);
-//            return true;
-//        }
-//    }
-//
-//    ;
-//}
-//
-//interface Unloadable {
-//    default void unload(Airplane airplane) {
-//        airplane.setCurrentNumberOfLoad(0);
-//    }
-//
-//    ;
-//}

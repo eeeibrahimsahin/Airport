@@ -5,6 +5,7 @@ import airport.builderpattern.CargoPlaneNew;
 import airport.builderpattern.PassengerPlane;
 import airport.builderpattern.Plane;
 import airport.model.*;
+import airport.service.singeltonpattern.AirportService;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -27,6 +28,7 @@ public class Application {
         System.out.println(airport.loadingAnAirplane("ABC123", 63));
         System.out.println(airport.loadingAnAirplane("FF2134", 20));
 
+// Creating new instance from builderpattern package.
         Plane plane = new PassengerPlane.Builder().flightId("TK300")
                 .maximumNumberOfPassengers(500)
                 .currentNumberOfPassengers(200)
@@ -46,5 +48,11 @@ public class Application {
         ))).build();
 
         airportNew.printAirplanesInAirport();
+
+        // creating service instance in singeltonpattern package.
+        AirportService airportService = AirportService.getInstance();
+        airportService.clean(cargo);
+        AirportService airportService1 = AirportService.getInstance();
+        airportService1.clean(plane);
     }
 }
