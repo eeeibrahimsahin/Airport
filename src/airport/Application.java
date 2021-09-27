@@ -1,7 +1,12 @@
 package airport;
 
+import airport.builderpattern.AirportNew;
+import airport.builderpattern.CargoPlaneNew;
+import airport.builderpattern.PassengerPlane;
+import airport.builderpattern.Plane;
 import airport.model.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Application {
@@ -34,5 +39,12 @@ public class Application {
         System.out.println("cargo.load(100) = " + cargo.load(100));
         System.out.println("cargo.unLoad() = " + cargo.unLoad());
         System.out.println("cargo = " + cargo);
+
+        AirportNew airportNew = new AirportNew.Builder().name("Eindhoven").planes(new ArrayList<>(Arrays.asList(
+                plane,
+                cargo
+        ))).build();
+
+        airportNew.printAirplanesInAirport();
     }
 }

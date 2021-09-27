@@ -1,4 +1,4 @@
-package airport.model;
+package airport.builderpattern;
 
 public class PassengerPlane extends Plane {
     private int maximumNumberOfPassengers;
@@ -36,6 +36,13 @@ public class PassengerPlane extends Plane {
         currentNumberOfPassengers = builder.currentNumberOfPassengers;
     }
 
+    public int getMaximumNumberOfPassengers() {
+        return maximumNumberOfPassengers;
+    }
+
+    public int getCurrentNumberOfPassengers() {
+        return currentNumberOfPassengers;
+    }
 
     @Override
     public String load(int value) {

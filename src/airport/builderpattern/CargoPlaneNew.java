@@ -1,4 +1,4 @@
-package airport.model;
+package airport.builderpattern;
 
 public class CargoPlaneNew extends Plane {
     private int maximumLoad;
@@ -35,6 +35,14 @@ public class CargoPlaneNew extends Plane {
         currentLoad = builder.currentLoad;
     }
 
+    public int getMaximumLoad() {
+        return maximumLoad;
+    }
+
+    public int getCurrentLoad() {
+        return currentLoad;
+    }
+
     @Override
     public String load(int value) {
         if ((currentLoad += value) > maximumLoad) {
@@ -46,7 +54,7 @@ public class CargoPlaneNew extends Plane {
 
     @Override
     public String unLoad() {
-        String returnText = "Cargo Plane " + this.getId() + " unloads " + currentLoad + " tons of cargo.";
+        String returnText = "Cargo Plane " + getId() + " unloads " + currentLoad + " tons of cargo.";
         currentLoad = 0;
         return returnText;
     }

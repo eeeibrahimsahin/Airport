@@ -1,4 +1,4 @@
-package airport.model;
+package airport.builderpattern;
 
 public abstract class Plane {
     private String id;
