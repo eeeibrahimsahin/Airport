@@ -4,9 +4,9 @@ import airport.builderpattern.Plane;
 
 public class AirportService {
     private static AirportService airportService_Instance = null;
+    private static String name = "Clean Service";
 
     private AirportService() {
-
     }
 
     public static AirportService getInstance() {
@@ -17,5 +17,6 @@ public class AirportService {
 
     public void clean(Plane plane) {
         System.out.println(this.hashCode() + " is cleaning " + plane.hashCode());
+        System.out.println(plane.getId() + " is cleaned by " + name);
     }
 }
