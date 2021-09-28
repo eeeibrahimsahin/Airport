@@ -1,6 +1,6 @@
 package airport;
 
-import airport.builderpattern.AirportNew;
+import airport.builderpattern.AirportBuilder;
 import airport.builderpattern.CargoPlaneNew;
 import airport.builderpattern.PassengerPlane;
 import airport.builderpattern.Plane;
@@ -43,12 +43,12 @@ public class Application {
         System.out.println("cargo.unLoad() = " + cargo.unLoad());
         System.out.println("cargo = " + cargo);
 
-        AirportNew airportNew = new AirportNew.Builder().name("Eindhoven").planes(new ArrayList<>(Arrays.asList(
+        AirportBuilder airportBuilder = new AirportBuilder.Builder().name("Eindhoven").planes(new ArrayList<>(Arrays.asList(
                 plane,
                 cargo
         ))).build();
 
-        airportNew.printAirplanesInAirport();
+        airportBuilder.printAirplanesInAirport();
 
         // creating service instance in singeltonpattern package.
         AirportService airportService = AirportService.getInstance();

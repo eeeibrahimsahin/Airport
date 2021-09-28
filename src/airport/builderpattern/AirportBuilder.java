@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class AirportNew {
+public class AirportBuilder {
     private String name;
     private List<Plane> planes;
 
@@ -22,12 +22,12 @@ public class AirportNew {
             return this;
         }
 
-        public AirportNew build() {
-            return new AirportNew(this);
+        public AirportBuilder build() {
+            return new AirportBuilder(this);
         }
     }
 
-    private AirportNew(Builder builder) {
+    private AirportBuilder(Builder builder) {
         name = builder.name;
         planes = builder.planes;
     }
